@@ -1,6 +1,6 @@
 # Simple proxy that sends all method calls to a real database connection
 module DbCharmer
-  class ConnectionProxy < ActiveSupport::BasicObject
+  class ConnectionProxy < ActiveSupport::ProxyObject
     # We need to do this because in Rails 2.3 BasicObject does not remove object_id method, which is stupid
     undef_method(:object_id) if instance_methods.member?('object_id')
 
